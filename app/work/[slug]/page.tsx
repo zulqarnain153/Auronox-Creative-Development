@@ -33,7 +33,7 @@ export default async function WorkDetailPage({
         </Link>
 
         <Reveal>
-          <div className="mt-10 text-sm font-semibold text-ink-muted">
+          <div className="mt-10 kicker">
             {project.category}
           </div>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
@@ -52,7 +52,7 @@ export default async function WorkDetailPage({
 
         <Reveal delay={160}>
           <div className="mt-16 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="text-sm font-semibold text-ink-muted">
+            <div className="kicker">
               About the project
             </div>
             <p className="text-ink-muted max-w-xl leading-relaxed">
@@ -64,7 +64,7 @@ export default async function WorkDetailPage({
         {relatedServices.length > 0 && (
           <Reveal delay={220}>
             <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-              <div className="text-sm font-semibold text-ink-muted">
+              <div className="kicker">
                 Related services
               </div>
               <div className="flex flex-wrap gap-3">

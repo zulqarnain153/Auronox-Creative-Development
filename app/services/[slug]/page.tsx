@@ -33,7 +33,7 @@ export default async function ServiceDetailPage({
         </Link>
 
         <Reveal>
-          <div className="mt-10 text-sm font-semibold text-ink-muted">
+          <div className="mt-10 kicker">
             Service {service.number}
           </div>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
@@ -46,7 +46,7 @@ export default async function ServiceDetailPage({
 
         <Reveal delay={100}>
           <div className="mt-20 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="text-sm font-semibold text-ink-muted">Process</div>
+            <div className="kicker">Process</div>
             <p className="text-ink-muted max-w-xl leading-relaxed">
               A project starts with a conversation about what you&apos;re
               trying to achieve, who it&apos;s for, and what you already have
@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({
 
         <Reveal delay={160}>
           <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="text-sm font-semibold text-ink-muted">
+            <div className="kicker">
               What we provide
             </div>
             <ul className="space-y-4">
@@ -76,7 +76,7 @@ export default async function ServiceDetailPage({
 
         <Reveal delay={220}>
           <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="text-sm font-semibold text-ink-muted">
+            <div className="kicker">
               Relevant work
             </div>
             {relatedWork.length > 0 ? (

@@ -12,7 +12,7 @@ export default function WorkRow({ item }: { item: WorkItem }) {
         className={`w-full sm:w-28 h-28 shrink-0 rounded-xl ${workGradientClasses[item.gradient]}`}
       />
       <div className="flex-1">
-        <div className="text-xs font-semibold text-ink-muted">
+        <div className="kicker">
           {item.category}
         </div>
         <div className="mt-1 font-display text-xl inline-block group-hover:translate-x-1.5 transition-transform duration-300">

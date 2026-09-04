@@ -7,7 +7,7 @@ export default function AboutPage() {
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <div className="max-w-2xl">
           <Reveal>
-            <div className="text-sm font-semibold text-ink-muted">
+            <div className="kicker">
               The person behind Auronox Creative
             </div>
             <h1 className="mt-5 font-display text-4xl sm:text-5xl leading-tight">

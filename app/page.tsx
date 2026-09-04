@@ -1,16 +1,17 @@
-import Link from "next/link";
-import AuroraBand from "@/components/AuroraBand";
+import AuroraGlow from "@/components/AuroraGlow";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
+import ServiceCard from "@/components/ServiceCard";
 import WorkRow from "@/components/WorkRow";
 import { services } from "@/lib/services";
 import { work } from "@/lib/work";
+import { processSteps } from "@/lib/process";
 
 export default function HomePage() {
   return (
     <>
       <section className="relative min-h-screen flex items-center pt-32 overflow-hidden">
-        <AuroraBand className="inset-x-[-10%] top-[-140px] h-[560px]" />
+        <AuroraGlow className="w-[60vw] h-[60vw] max-w-[900px] max-h-[900px] min-w-[420px] min-h-[420px] -top-1/4 -right-1/5" />
         <div className="relative z-10 max-w-content mx-auto px-6 sm:px-8">
           <div className="max-w-xl">
             <Reveal>
@@ -41,28 +42,17 @@ export default function HomePage() {
       <section className="py-24 sm:py-32">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
-            <div className="sm:w-48 shrink-0 text-sm font-semibold text-ink-muted pt-1">
+            <div className="sm:w-48 shrink-0 kicker pt-1">
               What we build
             </div>
             <h2 className="font-display text-3xl sm:text-4xl max-w-lg">
               Four ways we make a digital presence actually worth having.
             </h2>
           </div>
-          <div className="border-t border-line">
+          <div className="grid sm:grid-cols-2 gap-6">
             {services.map((s, i) => (
               <Reveal key={s.slug} delay={i * 80}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="group flex flex-col sm:flex-row gap-3 sm:gap-16 py-8 border-b border-line relative"
-                >
-                  <span className="absolute -left-6 sm:-left-8 top-0 bottom-0 w-[3px] bg-gradient-to-b from-aurora-violet to-aurora-teal scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
-                  <div className="sm:w-64 shrink-0 font-display text-xl group-hover:translate-x-1.5 transition-transform duration-300">
-                    {s.title}
-                  </div>
-                  <p className="text-ink-muted max-w-lg leading-relaxed">
-                    {s.summary}
-                  </p>
-                </Link>
+                <ServiceCard service={s} />
               </Reveal>
             ))}
           </div>
@@ -72,7 +62,34 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
-            <div className="sm:w-48 shrink-0 text-sm font-semibold text-ink-muted pt-1">
+            <div className="sm:w-48 shrink-0 kicker pt-1">How we work</div>
+            <h2 className="font-display text-3xl sm:text-4xl max-w-lg">
+              From first conversation to a site that&apos;s live.
+            </h2>
+          </div>
+          <div className="relative grid sm:grid-cols-4 gap-10 sm:gap-6">
+            <div className="hidden sm:block absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-aurora-violet via-aurora-teal to-aurora-rose opacity-25" />
+            {processSteps.map((step, i) => (
+              <Reveal key={step.number} delay={i * 90}>
+                <div className="relative">
+                  <div className="relative z-10 w-10 h-10 rounded-full bg-void border border-line flex items-center justify-center font-display text-sm mb-5">
+                    {step.number}
+                  </div>
+                  <h3 className="font-display text-lg">{step.title}</h3>
+                  <p className="mt-2 text-ink-muted leading-relaxed text-sm">
+                    {step.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 sm:py-32 border-t border-line">
+        <div className="max-w-content mx-auto px-6 sm:px-8">
+          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
+            <div className="sm:w-48 shrink-0 kicker pt-1">
               Selected work
             </div>
             <h2 className="font-display text-3xl sm:text-4xl max-w-lg">

@@ -25,7 +25,7 @@ type ButtonProps = LinkButtonProps | ActionButtonProps;
 
 const styles: Record<"primary" | "secondary", string> = {
   primary:
-    "inline-flex items-center gap-2 bg-ink text-void px-7 py-3.5 rounded-lg font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.28)] transition-all",
+    "inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-lg font-bold text-sm bg-gradient-to-r from-[#00A8F5] to-[#8B2FF0] bg-[length:200%_100%] bg-left hover:bg-right hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(139,47,240,0.4)] transition-all duration-500",
   secondary:
     "inline-flex items-center gap-2 text-sm font-semibold text-ink-muted border-b border-line pb-1 hover:text-ink hover:border-ink-muted transition-colors",
 };
