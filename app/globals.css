@@ -11,6 +11,47 @@ body {
   color: #f4f3f8;
 }
 
+.aurora-ribbon-a {
+  animation: auroraDriftA 22s ease-in-out infinite;
+  transform-origin: center;
+}
+.aurora-ribbon-b {
+  animation: auroraDriftB 28s ease-in-out infinite;
+  transform-origin: center;
+}
+.aurora-ribbon-c {
+  animation: auroraDriftC 34s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes auroraDriftA {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -18px) scale(1.03);
+  }
+}
+@keyframes auroraDriftB {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, 20px) scale(1.02);
+  }
+}
+@keyframes auroraDriftC {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(25px, 15px) scale(1.04);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

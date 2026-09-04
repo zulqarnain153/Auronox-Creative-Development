@@ -7,11 +7,16 @@ export type WorkItem = {
   gradient: "annax" | "emberleaf";
 };
 
+export const workGradientClasses: Record<string, string> = {
+  annax: "bg-gradient-to-br from-[#0B1428] via-[#16233F] to-[#FF4612]",
+  emberleaf: "bg-gradient-to-br from-[#241A14] via-[#4A2E1E] to-[#E2A15D]",
+};
+
 export const work: WorkItem[] = [
   {
     slug: "annax-auto-traders",
     title: "Annax Auto Traders",
-    category: "Automotive · Staines-upon-Thames",
+    category: "Used car dealership in Staines-upon-Thames",
     summary:
       "A dealership website built around clear vehicle browsing, straightforward information and an easy path to get in touch.",
     details:
@@ -21,7 +26,7 @@ export const work: WorkItem[] = [
   {
     slug: "ember-and-leaf",
     title: "Ember & Leaf",
-    category: "Hospitality · Concept",
+    category: "Independent coffee house, concept build",
     summary:
       "A concept website for an independent coffee house, exploring warm, editorial branding for a modern hospitality business.",
     details:

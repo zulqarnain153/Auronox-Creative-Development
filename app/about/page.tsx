@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 
 export default function AboutPage() {
@@ -52,12 +52,9 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={180}>
-            <Link
-              href="/contact"
-              className="mt-14 inline-block bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all"
-            >
+            <Button href="/contact" className="mt-14">
               Start a project
-            </Link>
+            </Button>
           </Reveal>
         </div>
       </div>

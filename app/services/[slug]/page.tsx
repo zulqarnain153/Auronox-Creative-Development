@@ -1,13 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services";
-import { work } from "@/lib/work";
-
-const workGradient: Record<string, string> = {
-  annax: "bg-gradient-to-br from-[#0B1428] via-[#16233F] to-[#FF4612]",
-  emberleaf: "bg-gradient-to-br from-[#241A14] via-[#4A2E1E] to-[#E2A15D]",
-};
+import { work, workGradientClasses } from "@/lib/work";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -88,7 +84,7 @@ export default async function ServiceDetailPage({
                 {relatedWork.map((w) => (
                   <Link key={w.slug} href={`/work/${w.slug}`} className="group">
                     <div
-                      className={`h-32 rounded-xl ${workGradient[w.gradient]}`}
+                      className={`h-32 rounded-xl ${workGradientClasses[w.gradient]}`}
                     />
                     <div className="mt-3 font-display text-base group-hover:text-aurora-violet transition-colors">
                       {w.title}
@@ -113,17 +109,15 @@ export default async function ServiceDetailPage({
         </Reveal>
 
         <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-line pt-12">
-          <Link
-            href="/contact"
-            className="inline-block bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all"
-          >
-            Start a project
-          </Link>
+          <Button href="/contact">Start a project</Button>
           <Link
             href={`/services/${next.slug}`}
-            className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors"
+            className="group text-sm font-semibold text-ink-muted hover:text-ink transition-colors"
           >
-            Next service: {next.title} →
+            Next service:{" "}
+            <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">
+              {next.title}
+            </span>
           </Link>
         </div>
       </div>

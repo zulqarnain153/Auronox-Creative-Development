@@ -1,13 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
-import { work } from "@/lib/work";
+import { work, workGradientClasses } from "@/lib/work";
 import { services } from "@/lib/services";
-
-const workGradient: Record<string, string> = {
-  annax: "bg-gradient-to-br from-[#0B1428] via-[#16233F] to-[#FF4612]",
-  emberleaf: "bg-gradient-to-br from-[#241A14] via-[#4A2E1E] to-[#E2A15D]",
-};
 
 export function generateStaticParams() {
   return work.map((w) => ({ slug: w.slug }));
@@ -50,7 +46,7 @@ export default async function WorkDetailPage({
 
         <Reveal delay={100}>
           <div
-            className={`mt-16 h-64 sm:h-80 rounded-2xl ${workGradient[project.gradient]}`}
+            className={`mt-16 h-64 sm:h-80 rounded-2xl ${workGradientClasses[project.gradient]}`}
           />
         </Reveal>
 
@@ -87,12 +83,7 @@ export default async function WorkDetailPage({
         )}
 
         <div className="mt-20 border-t border-line pt-12">
-          <Link
-            href="/contact"
-            className="inline-block bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all"
-          >
-            Start a project
-          </Link>
+          <Button href="/contact">Start a project</Button>
         </div>
       </div>
     </section>

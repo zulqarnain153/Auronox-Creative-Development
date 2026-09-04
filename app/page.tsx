@@ -1,19 +1,16 @@
 import Link from "next/link";
-import AuroraGlow from "@/components/AuroraGlow";
+import AuroraBand from "@/components/AuroraBand";
+import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
+import WorkRow from "@/components/WorkRow";
 import { services } from "@/lib/services";
 import { work } from "@/lib/work";
-
-const workGradient: Record<string, string> = {
-  annax: "bg-gradient-to-br from-[#0B1428] via-[#16233F] to-[#FF4612]",
-  emberleaf: "bg-gradient-to-br from-[#241A14] via-[#4A2E1E] to-[#E2A15D]",
-};
 
 export default function HomePage() {
   return (
     <>
       <section className="relative min-h-screen flex items-center pt-32 overflow-hidden">
-        <AuroraGlow className="w-[60vw] h-[60vw] max-w-[900px] max-h-[900px] min-w-[420px] min-h-[420px] -top-1/4 -right-1/5" />
+        <AuroraBand className="inset-x-[-10%] top-[-140px] h-[560px]" />
         <div className="relative z-10 max-w-content mx-auto px-6 sm:px-8">
           <div className="max-w-xl">
             <Reveal>
@@ -31,18 +28,10 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={220}>
               <div className="mt-10 flex items-center gap-7 flex-wrap">
-                <Link
-                  href="/contact"
-                  className="inline-block bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all"
-                >
-                  Start a project
-                </Link>
-                <Link
-                  href="/work"
-                  className="text-sm font-semibold text-ink-muted border-b border-line pb-1 hover:text-ink hover:border-ink-muted transition-colors"
-                >
+                <Button href="/contact">Start a project</Button>
+                <Button href="/work" variant="secondary">
                   See the work
-                </Link>
+                </Button>
               </div>
             </Reveal>
           </div>
@@ -90,24 +79,10 @@ export default function HomePage() {
               A few recent builds.
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-7">
+          <div className="border-t border-line">
             {work.map((w, i) => (
               <Reveal key={w.slug} delay={i * 100}>
-                <Link
-                  href={`/work/${w.slug}`}
-                  className="group block border border-line rounded-2xl overflow-hidden hover:border-ink-muted/40 transition-colors"
-                >
-                  <div className={`h-48 ${workGradient[w.gradient]}`} />
-                  <div className="p-6">
-                    <div className="text-xs font-semibold text-ink-muted">
-                      {w.category}
-                    </div>
-                    <h3 className="mt-2 font-display text-lg">{w.title}</h3>
-                    <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                      {w.summary}
-                    </p>
-                  </div>
-                </Link>
+                <WorkRow item={w} />
               </Reveal>
             ))}
           </div>
@@ -120,12 +95,9 @@ export default function HomePage() {
             <h2 className="font-display text-3xl sm:text-[2.6rem] max-w-xl leading-tight">
               Let&apos;s build something worth showing off.
             </h2>
-            <Link
-              href="/contact"
-              className="mt-10 inline-block bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all"
-            >
+            <Button href="/contact" className="mt-10">
               Start a project
-            </Link>
+            </Button>
           </Reveal>
         </div>
       </section>

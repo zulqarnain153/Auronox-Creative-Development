@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 
 const inputClasses =
@@ -41,9 +42,6 @@ export default function ContactPage() {
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <div className="max-w-xl">
           <Reveal>
-            <div className="text-sm font-semibold text-ink-muted mb-4">
-              Contact
-            </div>
             <h1 className="font-display text-4xl sm:text-5xl leading-tight">
               Have a project in mind?
             </h1>
@@ -96,13 +94,9 @@ export default function ContactPage() {
                   placeholder="What are you building, who's it for, and what are you hoping to achieve?"
                 />
               </div>
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="bg-ink text-void px-7 py-3.5 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(140,124,255,0.25)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-              >
+              <Button type="submit" disabled={status === "sending"}>
                 {status === "sending" ? "Sending…" : "Send message"}
-              </button>
+              </Button>
               {status === "success" && (
                 <p className="text-aurora-teal text-sm">
                   Thanks — we&apos;ll be in touch soon.

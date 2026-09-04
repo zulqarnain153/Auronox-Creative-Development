@@ -32,9 +32,6 @@ export default function FaqsPage() {
     <section className="pt-40 pb-32">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <Reveal>
-          <div className="text-sm font-semibold text-ink-muted mb-4">
-            FAQs
-          </div>
           <h1 className="font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
             Frequently asked questions.
           </h1>

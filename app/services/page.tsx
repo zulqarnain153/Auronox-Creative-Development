@@ -7,9 +7,6 @@ export default function ServicesPage() {
     <section className="pt-40 pb-32">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <Reveal>
-          <div className="text-sm font-semibold text-ink-muted mb-4">
-            Services
-          </div>
           <h1 className="font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
             Four ways we help a business show up properly online.
           </h1>
