@@ -48,15 +48,23 @@ export default function WhyChooseUs({
 }: {
   pageKey: keyof typeof whyChooseUs;
 }) {
-  const items = whyChooseUs[pageKey];
-  if (!items) return null;
+  const section = whyChooseUs[pageKey];
+  if (!section) return null;
 
   return (
     <section className="py-24 sm:py-32 border-t border-line">
       <div className="max-w-content mx-auto px-6 sm:px-8">
-        <div className="kicker-lg mb-12">Why Choose Us</div>
-        <div className="grid sm:grid-cols-3 gap-10">
-          {items.map((item, i) => {
+        <div className="max-w-2xl">
+          <div className="kicker-lg mb-5">Why Choose Us</div>
+          <h2 className="font-display text-3xl sm:text-4xl leading-tight">
+            {section.heading}
+          </h2>
+          <p className="mt-5 text-ink-muted leading-relaxed">
+            {section.intro}
+          </p>
+        </div>
+        <div className="mt-16 grid sm:grid-cols-3 gap-10">
+          {section.items.map((item, i) => {
             const Icon = icons[item.icon] ?? CheckCircle2;
             return (
               <Reveal key={item.title} delay={i * 90}>
