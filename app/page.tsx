@@ -2,6 +2,7 @@ import AuroraGlow from "@/components/AuroraGlow";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkRow from "@/components/WorkRow";
 import { services } from "@/lib/services";
 import { work } from "@/lib/work";
@@ -105,6 +106,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WhyChooseUs pageKey="home" />
 
       <section className="py-24 sm:py-32 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
