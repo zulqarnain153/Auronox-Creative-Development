@@ -1,6 +1,7 @@
 import AuroraGlow from "@/components/AuroraGlow";
 import BuildIllustration from "@/components/BuildIllustration";
 import Button from "@/components/Button";
+import HeroIllustration from "@/components/HeroIllustration";
 import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -14,27 +15,35 @@ export default function HomePage() {
     <>
       <section className="relative min-h-screen flex items-center pt-32 overflow-hidden">
         <AuroraGlow className="w-[60vw] h-[60vw] max-w-[900px] max-h-[900px] min-w-[420px] min-h-[420px] -top-1/4 -right-1/5" />
-        <div className="relative z-10 max-w-content mx-auto px-6 sm:px-8">
-          <div className="max-w-xl">
-            <Reveal>
-              <h1 className="font-display text-[2.6rem] sm:text-6xl lg:text-[4.6rem] leading-[1.05] tracking-tight">
-                Web and AI development for businesses that don&apos;t want to
-                look like everyone else.
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="mt-7 text-lg text-ink-muted leading-relaxed max-w-md">
-                Auronox Creative is a design and technology studio building
-                considered digital experiences at the intersection of design
-                and artificial intelligence.
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <div className="mt-10 flex items-center gap-7 flex-wrap">
-                <Button href="/contact">Start a project</Button>
-                <Button href="/work" variant="secondary">
-                  See the work
-                </Button>
+        <div className="relative z-10 max-w-content mx-auto px-6 sm:px-8 w-full">
+          <div className="grid lg:grid-cols-[1fr_0.85fr] gap-12 lg:gap-16 items-center">
+            <div className="max-w-lg">
+              <Reveal>
+                <h1 className="font-display text-[2.6rem] sm:text-6xl lg:text-[4.6rem] leading-[1.05] tracking-tight">
+                  Web and AI development for businesses that don&apos;t want to
+                  look like everyone else.
+                </h1>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="mt-7 text-lg text-ink-muted leading-relaxed max-w-md">
+                  Auronox Creative is a design and technology studio building
+                  considered digital experiences at the intersection of design
+                  and artificial intelligence.
+                </p>
+              </Reveal>
+              <Reveal delay={220}>
+                <div className="mt-10 flex items-center gap-7 flex-wrap">
+                  <Button href="/contact">Start a project</Button>
+                  <Button href="/work" variant="secondary">
+                    See the work
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal delay={160}>
+              <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
+                <HeroIllustration />
               </div>
             </Reveal>
           </div>
