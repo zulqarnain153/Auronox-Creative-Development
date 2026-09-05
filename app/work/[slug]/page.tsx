@@ -1,12 +1,28 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/Button";
+import BrowserFrame from "@/components/BrowserFrame";
 import Reveal from "@/components/Reveal";
 import { work, workGradientClasses } from "@/lib/work";
 import { services } from "@/lib/services";
 
 export function generateStaticParams() {
   return work.map((w) => ({ slug: w.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = work.find((w) => w.slug === slug);
+  if (!project) return {};
+  return {
+    title: project.title,
+    description: project.summary,
+  };
 }
 
 export default async function WorkDetailPage({
@@ -45,9 +61,18 @@ export default async function WorkDetailPage({
         </Reveal>
 
         <Reveal delay={100}>
-          <div
-            className={`mt-16 h-64 sm:h-80 rounded-2xl ${workGradientClasses[project.gradient]}`}
-          />
+          {project.screenshot ? (
+            <BrowserFrame
+              src={project.screenshot}
+              alt={project.title}
+              url={project.liveUrl}
+              className="mt-16"
+            />
+          ) : (
+            <div
+              className={`mt-16 h-64 sm:h-80 rounded-2xl ${workGradientClasses[project.gradient]}`}
+            />
+          )}
         </Reveal>
 
         <Reveal delay={160}>

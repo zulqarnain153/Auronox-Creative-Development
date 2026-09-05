@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
@@ -7,6 +9,20 @@ import { work, workGradientClasses } from "@/lib/work";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  if (!service) return {};
+  return {
+    title: service.title,
+    description: service.summary,
+  };
 }
 
 export default async function ServiceDetailPage({
@@ -83,9 +99,20 @@ export default async function ServiceDetailPage({
               <div className="grid sm:grid-cols-2 gap-6">
                 {relatedWork.map((w) => (
                   <Link key={w.slug} href={`/work/${w.slug}`} className="group">
-                    <div
-                      className={`h-32 rounded-xl ${workGradientClasses[w.gradient]}`}
-                    />
+                    {w.screenshot ? (
+                      <div className="relative h-32 rounded-xl overflow-hidden border border-line">
+                        <Image
+                          src={w.screenshot}
+                          alt={w.title}
+                          fill
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className={`h-32 rounded-xl ${workGradientClasses[w.gradient]}`}
+                      />
+                    )}
                     <div className="mt-3 font-display text-base group-hover:text-aurora-violet transition-colors">
                       {w.title}
                     </div>

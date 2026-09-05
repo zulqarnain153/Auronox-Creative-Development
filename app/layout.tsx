@@ -19,7 +19,10 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Auronox Creative | Web & AI Development",
+  title: {
+    default: "Auronox Creative | Web & AI Development",
+    template: "%s | Auronox Creative",
+  },
   description:
     "Auronox Creative is a design and technology studio building considered digital experiences at the intersection of design and artificial intelligence.",
 };

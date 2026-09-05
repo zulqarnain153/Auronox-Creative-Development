@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/lib/services";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Web design, AI integration, UI/UX and ongoing support — four ways Auronox Creative helps businesses show up properly online.",
+};
 
 export default function ServicesPage() {
   return (

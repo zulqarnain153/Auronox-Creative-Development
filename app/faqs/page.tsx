@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "FAQs",
+  description:
+    "Answers to common questions about working with Auronox Creative, from project timelines to AI integration.",
+};
 
 const faqs = [
   {

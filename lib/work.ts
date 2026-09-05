@@ -5,6 +5,8 @@ export type WorkItem = {
   summary: string;
   details: string;
   gradient: "annax" | "emberleaf";
+  screenshot?: string;
+  liveUrl?: string;
 };
 
 export const workGradientClasses: Record<string, string> = {
@@ -22,6 +24,8 @@ export const work: WorkItem[] = [
     details:
       "A full multi-page site for a used car dealership, covering stock browsing, vehicle details, a finance calculator, part exchange and selling a car — designed in the dealership's own navy, ignition orange and plate yellow, and built for speed and trust.",
     gradient: "annax",
+    liveUrl: "annax-auto-traders.vercel.app",
+    screenshot: "/annax-screenshot.jpg",
   },
   {
     slug: "ember-and-leaf",
@@ -32,5 +36,7 @@ export const work: WorkItem[] = [
     details:
       "A demo build exploring a warmer, more editorial layout style for hospitality brands — from menu presentation to overall visual tone.",
     gradient: "emberleaf",
+    liveUrl: "ember-and-leaf.vercel.app",
+    screenshot: "/ember-leaf-screenshot.jpg",
   },
 ];

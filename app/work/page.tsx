@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import WorkRow from "@/components/WorkRow";
 import { work } from "@/lib/work";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "A selection of websites built by Auronox Creative, including Annax Auto Traders and Ember & Leaf.",
+};
 
 export default function WorkPage() {
   return (

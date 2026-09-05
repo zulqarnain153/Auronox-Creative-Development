@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Meet Zulqarnain Tahir, founder of Auronox Creative — a studio built on turning ideas into real, working digital products.",
+};
 
 export default function AboutPage() {
   return (
