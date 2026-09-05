@@ -15,6 +15,9 @@ body {
   .kicker {
     @apply text-base font-semibold text-aurora-teal;
   }
+  .kicker-lg {
+    @apply text-lg font-semibold text-aurora-teal;
+  }
 }
 
 .aurora-blob-drift {

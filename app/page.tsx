@@ -42,7 +42,7 @@ export default function HomePage() {
       <section className="py-24 sm:py-32">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
-            <div className="sm:w-48 shrink-0 kicker pt-1">
+            <div className="sm:w-48 shrink-0 kicker-lg pt-1">
               What we build
             </div>
             <h2 className="font-display text-3xl sm:text-4xl max-w-lg">
@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
-            <div className="sm:w-48 shrink-0 kicker pt-1">How we work</div>
+            <div className="sm:w-48 shrink-0 kicker-lg pt-1">How we work</div>
             <h2 className="font-display text-3xl sm:text-4xl max-w-lg">
               From first conversation to a site that&apos;s live.
             </h2>
@@ -89,7 +89,7 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
-            <div className="sm:w-48 shrink-0 kicker pt-1">
+            <div className="sm:w-48 shrink-0 kicker-lg pt-1">
               Selected work
             </div>
             <h2 className="font-display text-3xl sm:text-4xl max-w-lg">

@@ -55,10 +55,10 @@ export default function Nav() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-void/80 backdrop-blur-md border-b border-line py-3"
-          : "py-4"
+          : "py-5"
       }`}
     >
-      <div className="max-w-content mx-auto px-6 sm:px-8 flex items-center justify-between">
+      <div className="relative mx-auto w-full max-w-[1800px] px-6 sm:px-10 lg:px-16 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-3 shrink-0"
@@ -70,7 +70,7 @@ export default function Nav() {
             width={140}
             height={98}
             priority
-            className="h-9 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
           <Image
             src="/logo-wordmark-light.png"
@@ -78,37 +78,38 @@ export default function Nav() {
             width={470}
             height={307}
             priority
-            className="hidden sm:block h-10 w-auto object-contain"
+            className="hidden sm:block h-14 w-auto object-contain"
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-9">
-          <div
-            ref={navRef}
-            className="relative flex gap-9"
-            onMouseLeave={resetToActive}
-          >
-            {site.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                ref={(el) => {
-                  linkRefs.current[item.href] = el;
-                }}
-                onMouseEnter={() => measure(item.href)}
-                onFocus={() => measure(item.href)}
-                className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors pb-1"
-              >
-                {item.label}
-              </Link>
-            ))}
-            {indicator && (
-              <span
-                className="absolute bottom-0 h-[2px] rounded-full bg-gradient-to-r from-[#00A8F5] to-[#8B2FF0] transition-all duration-300 ease-out"
-                style={{ left: indicator.left, width: indicator.width }}
-              />
-            )}
-          </div>
+        <div
+          ref={navRef}
+          className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-9"
+          onMouseLeave={resetToActive}
+        >
+          {site.nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              ref={(el) => {
+                linkRefs.current[item.href] = el;
+              }}
+              onMouseEnter={() => measure(item.href)}
+              onFocus={() => measure(item.href)}
+              className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors pb-1"
+            >
+              {item.label}
+            </Link>
+          ))}
+          {indicator && (
+            <span
+              className="absolute bottom-0 h-[2px] rounded-full bg-gradient-to-r from-[#00A8F5] to-[#8B2FF0] transition-all duration-300 ease-out"
+              style={{ left: indicator.left, width: indicator.width }}
+            />
+          )}
+        </div>
+
+        <div className="hidden md:block shrink-0">
           <Button href="/contact">Start a project</Button>
         </div>
 

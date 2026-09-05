@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
@@ -7,8 +8,23 @@ export default function Footer() {
     <footer className="border-t border-line mt-32">
       <div className="max-w-content mx-auto px-6 sm:px-8 py-16 grid gap-12 sm:grid-cols-3">
         <div>
-          <div className="font-display text-lg font-semibold">{site.name}</div>
-          <p className="mt-4 text-sm text-ink-muted leading-relaxed max-w-xs">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo-mark.png"
+              alt=""
+              width={140}
+              height={98}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/logo-wordmark-light.png"
+              alt="Auronox Creative"
+              width={470}
+              height={307}
+              className="h-11 w-auto object-contain"
+            />
+          </div>
+          <p className="mt-5 text-sm text-ink-muted leading-relaxed max-w-xs">
             {site.description}
           </p>
         </div>
