@@ -5,7 +5,6 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services";
-import { work, workGradientClasses } from "@/lib/work";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -36,7 +35,6 @@ export default async function ServiceDetailPage({
 
   const service = services[index];
   const next = services[(index + 1) % services.length];
-  const relatedWork = work.filter((w) => service.relatedWork.includes(w.slug));
 
   return (
     <section className="pt-40 pb-32">
@@ -61,6 +59,24 @@ export default async function ServiceDetailPage({
         </Reveal>
 
         <Reveal delay={100}>
+          <div className="relative mt-16 max-w-3xl">
+            <div
+              className="absolute -inset-6 sm:-inset-10 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-3xl rounded-[3rem]"
+              aria-hidden
+            />
+            <div className="relative rounded-2xl overflow-hidden border border-line shadow-2xl">
+              <Image
+                src={service.image}
+                alt={service.title}
+                width={1400}
+                height={1400}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={140}>
           <div className="mt-20 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
             <div className="kicker">Process</div>
             <p className="text-ink-muted max-w-xl leading-relaxed">
@@ -72,7 +88,7 @@ export default async function ServiceDetailPage({
           </div>
         </Reveal>
 
-        <Reveal delay={160}>
+        <Reveal delay={200}>
           <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
             <div className="kicker">
               What we provide
@@ -87,51 +103,6 @@ export default async function ServiceDetailPage({
                 </li>
               ))}
             </ul>
-          </div>
-        </Reveal>
-
-        <Reveal delay={220}>
-          <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="kicker">
-              Relevant work
-            </div>
-            {relatedWork.length > 0 ? (
-              <div className="grid sm:grid-cols-2 gap-6">
-                {relatedWork.map((w) => (
-                  <Link key={w.slug} href={`/work/${w.slug}`} className="group">
-                    {w.screenshot ? (
-                      <div className="relative h-32 rounded-xl overflow-hidden border border-line">
-                        <Image
-                          src={w.screenshot}
-                          alt={w.title}
-                          fill
-                          className="object-cover object-top"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className={`h-32 rounded-xl ${workGradientClasses[w.gradient]}`}
-                      />
-                    )}
-                    <div className="mt-3 font-display text-base group-hover:text-aurora-violet transition-colors">
-                      {w.title}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <p className="text-ink-muted">
-                We don&apos;t have a published case study for this service
-                yet.{" "}
-                <Link
-                  href="/work"
-                  className="text-ink hover:text-aurora-violet transition-colors"
-                >
-                  See selected work
-                </Link>
-                .
-              </p>
-            )}
           </div>
         </Reveal>
 

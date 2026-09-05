@@ -7,6 +7,8 @@ export type WorkItem = {
   gradient: "annax" | "emberleaf";
   screenshot?: string;
   liveUrl?: string;
+  techStack?: string[];
+  features?: string[];
 };
 
 export const workGradientClasses: Record<string, string> = {
@@ -26,6 +28,13 @@ export const work: WorkItem[] = [
     gradient: "annax",
     liveUrl: "annax-auto-traders.vercel.app",
     screenshot: "/annax-screenshot.jpg",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Web3Forms"],
+    features: [
+      "Vehicle search by registration number",
+      "Filter stock by make and budget",
+      "Dedicated Sell Your Car and Part Exchange pages",
+      "Click-to-call and WhatsApp contact buttons",
+    ],
   },
   {
     slug: "ember-and-leaf",
@@ -38,5 +47,11 @@ export const work: WorkItem[] = [
     gradient: "emberleaf",
     liveUrl: "ember-and-leaf.vercel.app",
     screenshot: "/ember-leaf-screenshot.jpg",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    features: [
+      "Menu and About pages",
+      "Location and opening hours on a dedicated Find Us page",
+      "Warm, editorial-style layout suited to a hospitality brand",
+    ],
   },
 ];

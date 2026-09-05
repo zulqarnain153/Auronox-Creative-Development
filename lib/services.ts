@@ -6,6 +6,7 @@ export type Service = {
   bullets: string[];
   relatedWork: string[];
   icon: "code" | "brain" | "pen" | "gauge";
+  image: string;
 };
 
 export const services: Service[] = [
@@ -23,6 +24,7 @@ export const services: Service[] = [
     ],
     relatedWork: ["annax-auto-traders", "ember-and-leaf"],
     icon: "code",
+    image: "/service-web-design.jpg",
   },
   {
     slug: "ai-integration-automation",
@@ -38,6 +40,7 @@ export const services: Service[] = [
     ],
     relatedWork: [],
     icon: "brain",
+    image: "/service-ai-automation.jpg",
   },
   {
     slug: "ui-ux-digital-experiences",
@@ -53,6 +56,7 @@ export const services: Service[] = [
     ],
     relatedWork: [],
     icon: "pen",
+    image: "/service-ui-ux.jpg",
   },
   {
     slug: "optimization-support",
@@ -68,5 +72,6 @@ export const services: Service[] = [
     ],
     relatedWork: [],
     icon: "gauge",
+    image: "/service-optimization.jpg",
   },
 ];

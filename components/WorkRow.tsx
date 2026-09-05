@@ -10,7 +10,7 @@ export default function WorkRow({ item }: { item: WorkItem }) {
     >
       <span className="absolute -left-6 sm:-left-8 top-0 bottom-0 w-[3px] bg-gradient-to-b from-aurora-violet to-aurora-teal scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
       {item.screenshot ? (
-        <div className="relative w-full sm:w-28 h-28 shrink-0 rounded-xl overflow-hidden border border-line">
+        <div className="relative w-full sm:w-48 h-28 shrink-0 rounded-xl overflow-hidden border border-line">
           <Image
             src={item.screenshot}
             alt={item.title}
@@ -20,7 +20,7 @@ export default function WorkRow({ item }: { item: WorkItem }) {
         </div>
       ) : (
         <div
-          className={`w-full sm:w-28 h-28 shrink-0 rounded-xl ${workGradientClasses[item.gradient]}`}
+          className={`w-full sm:w-48 h-28 shrink-0 rounded-xl ${workGradientClasses[item.gradient]}`}
         />
       )}
       <div className="flex-1">

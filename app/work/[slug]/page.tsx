@@ -58,6 +58,16 @@ export default async function WorkDetailPage({
           <p className="mt-6 text-lg text-ink-muted max-w-xl leading-relaxed">
             {project.summary}
           </p>
+          {project.liveUrl && (
+            <a
+              href={`https://${project.liveUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-aurora-teal hover:text-ink transition-colors"
+            >
+              Visit live site ↗
+            </a>
+          )}
         </Reveal>
 
         <Reveal delay={100}>
@@ -66,6 +76,7 @@ export default async function WorkDetailPage({
               src={project.screenshot}
               alt={project.title}
               url={project.liveUrl}
+              href={project.liveUrl ? `https://${project.liveUrl}` : undefined}
               className="mt-16"
             />
           ) : (
@@ -86,8 +97,44 @@ export default async function WorkDetailPage({
           </div>
         </Reveal>
 
+        {project.techStack && project.techStack.length > 0 && (
+          <Reveal delay={190}>
+            <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
+              <div className="kicker">Built with</div>
+              <div className="flex flex-wrap gap-3">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-sm font-semibold px-4 py-2 rounded-full border border-line"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        )}
+
+        {project.features && project.features.length > 0 && (
+          <Reveal delay={210}>
+            <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
+              <div className="kicker">Key features</div>
+              <ul className="space-y-4">
+                {project.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="text-ink-muted leading-relaxed pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.65em] before:w-2 before:h-2 before:rounded-full before:bg-aurora-violet/70"
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        )}
+
         {relatedServices.length > 0 && (
-          <Reveal delay={220}>
+          <Reveal delay={230}>
             <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
               <div className="kicker">
                 Related services
