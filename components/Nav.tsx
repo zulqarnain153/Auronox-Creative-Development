@@ -14,6 +14,8 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [indicator, setIndicator] = useState<Indicator | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   const navRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -85,21 +87,46 @@ export default function Nav() {
         <div
           ref={navRef}
           className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-9"
-          onMouseLeave={resetToActive}
+          onMouseLeave={() => {
+            resetToActive();
+            setDropdownOpen(null);
+          }}
         >
           {site.nav.map((item) => (
-            <Link
+            <div
               key={item.href}
-              href={item.href}
-              ref={(el) => {
-                linkRefs.current[item.href] = el;
-              }}
-              onMouseEnter={() => measure(item.href)}
-              onFocus={() => measure(item.href)}
-              className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors pb-1"
+              className="relative"
+              onMouseEnter={() => item.dropdown && setDropdownOpen(item.href)}
             >
-              {item.label}
-            </Link>
+              <Link
+                href={item.href}
+                ref={(el) => {
+                  linkRefs.current[item.href] = el;
+                }}
+                onMouseEnter={() => measure(item.href)}
+                onFocus={() => measure(item.href)}
+                className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors pb-1"
+              >
+                {item.label}
+              </Link>
+
+              {item.dropdown && dropdownOpen === item.href && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+                  <div className="w-64 rounded-xl border border-line bg-void/95 backdrop-blur-md shadow-2xl p-2">
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => setDropdownOpen(null)}
+                        className="block px-4 py-3 rounded-lg text-sm font-semibold text-ink-muted hover:text-ink hover:bg-surface transition-colors"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
           {indicator && (
             <span
@@ -124,18 +151,58 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="md:hidden px-6 pt-6 pb-6 flex flex-col gap-4 bg-void/95 backdrop-blur-md border-b border-line">
-          {site.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="text-base font-semibold text-ink-muted hover:text-ink transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Button href="/contact" className="mt-2 w-fit">
+        <nav className="md:hidden px-6 pt-6 pb-6 flex flex-col gap-1 bg-void/95 backdrop-blur-md border-b border-line">
+          {site.nav.map((item) =>
+            item.dropdown ? (
+              <div key={item.href}>
+                <div className="flex items-center justify-between">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="py-3 text-base font-semibold text-ink-muted hover:text-ink transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                  <button
+                    onClick={() => setMobileDropdownOpen((v) => !v)}
+                    aria-label="Toggle services list"
+                    aria-expanded={mobileDropdownOpen}
+                    className="p-3 text-ink-muted"
+                  >
+                    <span
+                      className={`inline-block transition-transform duration-300 ${mobileDropdownOpen ? "rotate-45" : ""}`}
+                    >
+                      +
+                    </span>
+                  </button>
+                </div>
+                {mobileDropdownOpen && (
+                  <div className="pl-4 pb-2 flex flex-col gap-1">
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => setOpen(false)}
+                        className="py-2 text-sm font-semibold text-ink-muted hover:text-ink transition-colors"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-semibold text-ink-muted hover:text-ink transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
+          <Button href="/contact" className="mt-3 w-fit">
             Start a project
           </Button>
         </nav>

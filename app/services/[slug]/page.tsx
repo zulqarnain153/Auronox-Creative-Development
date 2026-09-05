@@ -46,38 +46,60 @@ export default async function ServiceDetailPage({
           ← Back to Services
         </Link>
 
-        <Reveal>
-          <div className="mt-10 kicker">
-            Service {service.number}
-          </div>
-          <h1 className="mt-4 font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
-            {service.title}
-          </h1>
-          <p className="mt-6 text-lg text-ink-muted max-w-xl leading-relaxed">
-            {service.summary}
-          </p>
-        </Reveal>
+        <div className="mt-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+          <Reveal>
+            <div className="kicker">Service {service.number}</div>
+            <h1 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
+              {service.title}
+            </h1>
+            <p className="mt-6 text-lg text-ink-muted max-w-xl leading-relaxed">
+              {service.summary}
+            </p>
+          </Reveal>
 
-        <Reveal delay={100}>
-          <div className="relative mt-16 max-w-3xl">
-            <div
-              className="absolute -inset-6 sm:-inset-10 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-3xl rounded-[3rem]"
-              aria-hidden
-            />
-            <div className="relative rounded-2xl overflow-hidden border border-line shadow-2xl">
-              <Image
-                src={service.image}
-                alt={service.title}
-                width={1400}
-                height={1400}
-                className="w-full h-auto"
+          <Reveal delay={100}>
+            <div className="relative max-w-sm mx-auto lg:max-w-none">
+              <div
+                className="absolute -inset-4 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-2xl rounded-[2rem]"
+                aria-hidden
               />
+              <div className="relative rounded-2xl overflow-hidden border border-line shadow-2xl">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={700}
+                  height={700}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={140}>
+          <div className="mt-20 border-t border-line pt-12">
+            <div className="kicker">How this plays out</div>
+            <div className="mt-8 grid sm:grid-cols-3 gap-6">
+              {service.story.map((beat, i) => (
+                <div
+                  key={beat.title}
+                  className="group rounded-2xl border border-line p-6 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="text-sm font-semibold text-ink-muted">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mt-3 font-display text-lg">{beat.title}</h3>
+                  <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                    {beat.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </Reveal>
 
-        <Reveal delay={140}>
-          <div className="mt-20 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
+        <Reveal delay={200}>
+          <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
             <div className="kicker">Process</div>
             <p className="text-ink-muted max-w-xl leading-relaxed">
               A project starts with a conversation about what you&apos;re
@@ -85,24 +107,6 @@ export default async function ServiceDetailPage({
               in place. From there we scope the work and outline what&apos;s
               involved before anything is built.
             </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-            <div className="kicker">
-              What we provide
-            </div>
-            <ul className="space-y-4">
-              {service.bullets.map((b) => (
-                <li
-                  key={b}
-                  className="text-ink-muted leading-relaxed pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.65em] before:w-2 before:h-2 before:rounded-full before:bg-aurora-violet/70"
-                >
-                  {b}
-                </li>
-              ))}
-            </ul>
           </div>
         </Reveal>
 

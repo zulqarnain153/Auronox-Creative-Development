@@ -5,7 +5,6 @@ import Button from "@/components/Button";
 import BrowserFrame from "@/components/BrowserFrame";
 import Reveal from "@/components/Reveal";
 import { work, workGradientClasses } from "@/lib/work";
-import { services } from "@/lib/services";
 
 export function generateStaticParams() {
   return work.map((w) => ({ slug: w.slug }));
@@ -33,10 +32,6 @@ export default async function WorkDetailPage({
   const { slug } = await params;
   const project = work.find((w) => w.slug === slug);
   if (!project) return notFound();
-
-  const relatedServices = services.filter((s) =>
-    s.relatedWork.includes(project.slug)
-  );
 
   return (
     <section className="pt-40 pb-32">
@@ -77,11 +72,11 @@ export default async function WorkDetailPage({
               alt={project.title}
               url={project.liveUrl}
               href={project.liveUrl ? `https://${project.liveUrl}` : undefined}
-              className="mt-16"
+              className="mt-16 max-w-2xl"
             />
           ) : (
             <div
-              className={`mt-16 h-64 sm:h-80 rounded-2xl ${workGradientClasses[project.gradient]}`}
+              className={`mt-16 max-w-2xl h-56 sm:h-72 rounded-2xl ${workGradientClasses[project.gradient]}`}
             />
           )}
         </Reveal>
@@ -129,27 +124,6 @@ export default async function WorkDetailPage({
                   </li>
                 ))}
               </ul>
-            </div>
-          </Reveal>
-        )}
-
-        {relatedServices.length > 0 && (
-          <Reveal delay={230}>
-            <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
-              <div className="kicker">
-                Related services
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {relatedServices.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/services/${s.slug}`}
-                    className="text-sm font-semibold px-4 py-2 rounded-full border border-line hover:border-ink-muted/50 transition-colors"
-                  >
-                    {s.title}
-                  </Link>
-                ))}
-              </div>
             </div>
           </Reveal>
         )}
