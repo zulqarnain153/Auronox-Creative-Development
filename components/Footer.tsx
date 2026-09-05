@@ -5,7 +5,7 @@ import { services } from "@/lib/services";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line mt-32">
+    <footer className="border-t border-line">
       <div className="max-w-content mx-auto px-6 sm:px-8 py-16 grid gap-12 sm:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
