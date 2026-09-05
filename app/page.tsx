@@ -74,7 +74,7 @@ export default function HomePage() {
             {processSteps.map((step, i) => (
               <Reveal key={step.number} delay={i * 90}>
                 <div className="relative">
-                  <div className="relative z-10 w-10 h-10 rounded-full bg-void border border-line flex items-center justify-center font-display text-sm mb-5">
+                  <div className="relative z-10 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm mb-5">
                     {step.number}
                   </div>
                   <h3 className="font-display text-lg">{step.title}</h3>

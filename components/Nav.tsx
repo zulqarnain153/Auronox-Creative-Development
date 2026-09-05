@@ -40,6 +40,9 @@ export default function Nav() {
     }
   };
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   // Re-measure the active link whenever the route changes, and once on mount.
   useEffect(() => {
     resetToActive();
@@ -105,7 +108,11 @@ export default function Nav() {
                 }}
                 onMouseEnter={() => measure(item.href)}
                 onFocus={() => measure(item.href)}
-                className="text-sm font-semibold text-ink-muted hover:text-ink transition-colors pb-1"
+                className={`text-sm font-semibold transition-colors pb-1 ${
+                  isActive(item.href)
+                    ? "text-ink"
+                    : "text-ink-muted hover:text-ink"
+                }`}
               >
                 {item.label}
               </Link>
@@ -159,7 +166,11 @@ export default function Nav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="py-3 text-base font-semibold text-ink-muted hover:text-ink transition-colors"
+                    className={`py-3 text-base font-semibold transition-colors ${
+                      isActive(item.href)
+                        ? "text-ink"
+                        : "text-ink-muted hover:text-ink"
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -196,7 +207,11 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-base font-semibold text-ink-muted hover:text-ink transition-colors"
+                className={`py-3 text-base font-semibold transition-colors ${
+                  isActive(item.href)
+                    ? "text-ink"
+                    : "text-ink-muted hover:text-ink"
+                }`}
               >
                 {item.label}
               </Link>

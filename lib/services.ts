@@ -8,6 +8,8 @@ export type Service = {
   number: string;
   title: string;
   summary: string;
+  description: string;
+  processDescription: string;
   story: StoryBeat[];
   icon: "code" | "brain" | "pen" | "gauge";
   image: string;
@@ -20,6 +22,10 @@ export const services: Service[] = [
     title: "Web Design & Development",
     summary:
       "Distinctive, responsive websites designed around your brand, audience and goals.",
+    description:
+      "A website built specifically for your business, not adapted from someone else's template. We handle the design and the development end to end, so what launches is fast, responsive, and built to represent your business properly from day one.",
+    processDescription:
+      "A project starts with a conversation about the website you need — who it's for, what pages or features matter most, and what you already have in place. From there we scope the build and outline what's involved before any design work begins.",
     story: [
       {
         title: "Built from scratch",
@@ -46,6 +52,10 @@ export const services: Service[] = [
     title: "AI Integration & Automation",
     summary:
       "Practical AI-powered systems and automations that reduce repetitive work and create smarter workflows.",
+    description:
+      "Practical AI and automation built around how your business actually operates, not bolted on as a novelty. We focus on the parts of your workflow that genuinely benefit from it — saving real time without adding unnecessary complexity.",
+    processDescription:
+      "A project starts with a conversation about the workflow or task you're looking to improve — what's taking up time, and what tools or data are already in place. From there we scope what's realistic to build before any automation goes live.",
     story: [
       {
         title: "Automate the repetitive stuff",
@@ -72,6 +82,10 @@ export const services: Service[] = [
     title: "UI/UX & Digital Experiences",
     summary:
       "Clear, thoughtful interfaces and digital experiences designed for usability, interaction and impact.",
+    description:
+      "Interfaces designed around how people actually use them, not just how they look in a mockup. Every decision — layout, navigation, interaction — is made to help visitors understand and trust what they're looking at.",
+    processDescription:
+      "A project starts with a conversation about who uses the product and what they're trying to do — the goals, the constraints, what's working and what isn't. From there we scope the work and move into prototyping before anything gets built.",
     story: [
       {
         title: "Grounded in real use",
@@ -98,6 +112,10 @@ export const services: Service[] = [
     title: "Optimization & Support",
     summary:
       "Ongoing improvements, performance refinement and technical support to keep your digital presence working at its best.",
+    description:
+      "Ongoing technical care that keeps a site fast, secure, and working properly well after launch. Rather than a one-time fix, it's continued attention — catching issues early and improving performance over time.",
+    processDescription:
+      "A project starts with a conversation about how the site is currently performing and what's not working as well as it should. From there we scope the improvements and agree what ongoing support looks like before any changes are made.",
     story: [
       {
         title: "Faster, measurably",

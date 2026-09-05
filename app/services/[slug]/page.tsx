@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!service) return {};
   return {
     title: service.title,
-    description: service.summary,
+    description: service.description,
   };
 }
 
@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({
                 {service.title}
               </h1>
               <p className="mt-6 text-lg text-ink-muted max-w-xl leading-relaxed">
-                {service.summary}
+                {service.description}
               </p>
             </Reveal>
 
@@ -85,9 +85,9 @@ export default async function ServiceDetailPage({
                 {service.story.map((beat, i) => (
                   <div
                     key={beat.title}
-                    className="group rounded-2xl border border-line p-6 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
+                    className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="text-sm font-semibold text-ink-muted">
+                    <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <h3 className="mt-3 font-display text-lg">{beat.title}</h3>
@@ -104,10 +104,7 @@ export default async function ServiceDetailPage({
             <div className="mt-12 grid sm:grid-cols-[200px_1fr] gap-8 sm:gap-16 border-t border-line pt-12">
               <div className="kicker">Process</div>
               <p className="text-ink-muted max-w-xl leading-relaxed">
-                A project starts with a conversation about what you&apos;re
-                trying to achieve, who it&apos;s for, and what you already
-                have in place. From there we scope the work and outline
-                what&apos;s involved before anything is built.
+                {service.processDescription}
               </p>
             </div>
           </Reveal>

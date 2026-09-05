@@ -170,9 +170,9 @@ export default async function WorkDetailPage({
                 {project.featureCards.map((feature) => (
                   <div
                     key={feature.number}
-                    className="group rounded-2xl border border-line p-6 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
+                    className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="text-sm font-semibold text-ink-muted">
+                    <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
                       {feature.number}
                     </div>
                     <h3 className="mt-3 font-display text-lg">
