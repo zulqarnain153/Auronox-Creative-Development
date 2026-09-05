@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Users,
   CheckCircle2,
@@ -54,15 +55,35 @@ export default function WhyChooseUs({
   return (
     <section className="py-24 sm:py-32 border-t border-line">
       <div className="max-w-content mx-auto px-6 sm:px-8">
-        <div className="max-w-2xl">
-          <div className="kicker-lg mb-5">Why Choose Us</div>
-          <h2 className="font-display text-3xl sm:text-4xl leading-tight">
-            {section.heading}
-          </h2>
-          <p className="mt-5 text-ink-muted leading-relaxed">
-            {section.intro}
-          </p>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <Reveal>
+            <div className="kicker-lg mb-5">Why Choose Us</div>
+            <h2 className="font-display text-3xl sm:text-4xl leading-tight">
+              {section.heading}
+            </h2>
+            <p className="mt-5 text-ink-muted leading-relaxed max-w-xl">
+              {section.intro}
+            </p>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="group relative">
+              <div
+                className="absolute -inset-4 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-2xl rounded-[2rem]"
+                aria-hidden
+              />
+              <div className="relative rounded-2xl overflow-hidden border border-line shadow-2xl aspect-[3/2]">
+                <Image
+                  src="/why-choose-us.jpg"
+                  alt="Auronox Creative"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </Reveal>
         </div>
+
         <div className="mt-16 grid sm:grid-cols-3 gap-10">
           {section.items.map((item, i) => {
             const Icon = icons[item.icon] ?? CheckCircle2;
