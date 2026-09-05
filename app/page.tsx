@@ -1,4 +1,5 @@
 import AuroraGlow from "@/components/AuroraGlow";
+import BuildIllustration from "@/components/BuildIllustration";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
@@ -40,7 +41,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-20">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
             <div className="sm:w-48 shrink-0 kicker-lg pt-1">
@@ -60,7 +61,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32 border-t border-line">
+      <section className="py-16 sm:py-20 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
             <div className="sm:w-48 shrink-0 kicker-lg pt-1">How we work</div>
@@ -87,7 +88,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32 border-t border-line">
+      <section className="py-16 sm:py-20 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-16">
             <div className="sm:w-48 shrink-0 kicker-lg pt-1">
@@ -109,16 +110,29 @@ export default function HomePage() {
 
       <WhyChooseUs pageKey="home" />
 
-      <section className="py-24 sm:py-32 border-t border-line">
+      <section className="py-16 sm:py-20 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-[2.6rem] max-w-xl leading-tight">
-              Let&apos;s build something worth showing off.
-            </h2>
-            <Button href="/contact" className="mt-10">
-              Start a project
-            </Button>
-          </Reveal>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <Reveal>
+              <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
+                <BuildIllustration />
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight">
+                Let&apos;s build something worth showing off.
+              </h2>
+              <p className="mt-5 text-ink-muted leading-relaxed max-w-md">
+                Whatever stage you&apos;re at — a rough idea or a fully
+                scoped brief — we&apos;ll figure out the right starting
+                point together and take it from there.
+              </p>
+              <Button href="/contact" className="mt-8">
+                Start a project
+              </Button>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>

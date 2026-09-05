@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkRow from "@/components/WorkRow";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <section className="pt-40 pb-32">
+      <section className="pt-36 pb-16">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <Reveal>
             <h1 className="font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
@@ -32,6 +33,8 @@ export default function WorkPage() {
       </section>
 
       <WhyChooseUs pageKey="work" />
+
+      <FinalCTA />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -36,7 +37,8 @@ const faqs = [
 
 export default function FaqsPage() {
   return (
-    <section className="pt-40 pb-32">
+    <>
+    <section className="pt-36 pb-16">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <Reveal>
           <h1 className="font-display text-4xl sm:text-5xl max-w-2xl leading-tight">
@@ -67,5 +69,8 @@ export default function FaqsPage() {
         </div>
       </div>
     </section>
+
+    <FinalCTA />
+    </>
   );
 }

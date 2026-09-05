@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/Button";
+import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { services } from "@/lib/services";
@@ -39,7 +39,7 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <section className="pt-40 pb-24">
+      <section className="pt-36 pb-12">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <Link
             href="/services"
@@ -116,10 +116,9 @@ export default async function ServiceDetailPage({
 
       <WhyChooseUs pageKey={service.slug} />
 
-      <section className="pb-32">
+      <section className="pb-8">
         <div className="max-w-content mx-auto px-6 sm:px-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-line pt-12">
-            <Button href="/contact">Start a project</Button>
+          <div className="flex justify-end border-t border-line pt-8">
             <Link
               href={`/services/${next.slug}`}
               className="group text-sm font-semibold text-ink-muted hover:text-ink transition-colors"
@@ -132,6 +131,8 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
+
+      <FinalCTA />
     </>
   );
 }

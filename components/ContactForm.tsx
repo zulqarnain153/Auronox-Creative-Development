@@ -38,7 +38,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="pt-40 pb-32">
+    <section className="pt-36 pb-16">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <div className="max-w-xl">
           <Reveal>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/Button";
+import FinalCTA from "@/components/FinalCTA";
 import BrowserFrame from "@/components/BrowserFrame";
 import Reveal from "@/components/Reveal";
 import { work, workGradientClasses } from "@/lib/work";
@@ -35,7 +35,8 @@ export default async function WorkDetailPage({
   if (!project) return notFound();
 
   return (
-    <section className="pt-40 pb-32">
+    <>
+    <section className="pt-36 pb-16">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <Link
           href="/work"
@@ -233,11 +234,10 @@ export default async function WorkDetailPage({
             </div>
           </Reveal>
         )}
-
-        <div className="mt-20 border-t border-line pt-12">
-          <Button href="/contact">Start a project</Button>
-        </div>
       </div>
     </section>
+
+    <FinalCTA />
+    </>
   );
 }

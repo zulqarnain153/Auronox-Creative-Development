@@ -53,7 +53,7 @@ export default function WhyChooseUs({
   if (!section) return null;
 
   return (
-    <section className="py-24 sm:py-32 border-t border-line">
+    <section className="py-16 sm:py-20 border-t border-line">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal>

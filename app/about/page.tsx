@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Button from "@/components/Button";
+import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="pt-40 pb-24">
+      <section className="pt-36 pb-12">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="max-w-2xl">
             <Reveal>
@@ -59,17 +59,13 @@ export default function AboutPage() {
                 </p>
               </div>
             </Reveal>
-
-            <Reveal delay={180}>
-              <Button href="/contact" className="mt-14">
-                Start a project
-              </Button>
-            </Reveal>
           </div>
         </div>
       </section>
 
       <WhyChooseUs pageKey="about" />
+
+      <FinalCTA />
     </>
   );
 }
