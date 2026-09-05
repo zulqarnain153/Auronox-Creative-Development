@@ -58,7 +58,7 @@ export default function Nav() {
           : "py-5"
       }`}
     >
-      <div className="relative mx-auto w-full max-w-[1800px] px-6 sm:px-10 lg:px-16 flex items-center justify-between">
+      <div className="relative mx-auto w-full max-w-[1600px] px-8 sm:px-14 lg:px-20 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-3 shrink-0"
@@ -78,7 +78,7 @@ export default function Nav() {
             width={470}
             height={307}
             priority
-            className="hidden sm:block h-14 w-auto object-contain"
+            className="hidden sm:block h-[84px] w-auto object-contain"
           />
         </Link>
 

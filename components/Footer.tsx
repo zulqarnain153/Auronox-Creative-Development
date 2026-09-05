@@ -14,14 +14,14 @@ export default function Footer() {
               alt=""
               width={140}
               height={98}
-              className="h-10 w-auto object-contain"
+              className="h-9 lg:h-12 w-auto object-contain"
             />
             <Image
               src="/logo-wordmark-light.png"
               alt="Auronox Creative"
               width={470}
               height={307}
-              className="h-11 w-auto object-contain"
+              className="h-14 lg:h-[84px] w-auto object-contain"
             />
           </div>
           <p className="mt-5 text-sm text-ink-muted leading-relaxed max-w-xs">
