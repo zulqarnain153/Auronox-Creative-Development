@@ -23,7 +23,7 @@ export default function ServicesPage() {
 
           <div className="mt-16 grid sm:grid-cols-2 gap-6">
             {services.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 80}>
+              <Reveal key={s.slug} delay={i * 80} variant={i % 2 === 0 ? "left" : "right"}>
                 <ServiceCard service={s} />
               </Reveal>
             ))}

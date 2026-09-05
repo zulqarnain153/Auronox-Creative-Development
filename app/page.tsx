@@ -41,7 +41,7 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            <Reveal delay={160}>
+            <Reveal delay={160} variant="scale">
               <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
                 <HeroIllustration />
               </div>
@@ -62,7 +62,7 @@ export default function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
             {services.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 80}>
+              <Reveal key={s.slug} delay={i * 80} variant={i % 2 === 0 ? "left" : "right"}>
                 <ServiceCard service={s} />
               </Reveal>
             ))}
@@ -122,7 +122,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 border-t border-line">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <Reveal>
+            <Reveal variant="scale">
               <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
                 <BuildIllustration />
               </div>

@@ -7,7 +7,7 @@ export default function FinalCTA() {
     <section className="py-16 sm:py-20 border-t border-line">
       <div className="max-w-content mx-auto px-6 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <Reveal>
+          <Reveal variant="scale">
             <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
               <ContactIllustration />
             </div>

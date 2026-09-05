@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({
               </p>
             </Reveal>
 
-            <Reveal delay={100}>
+            <Reveal delay={100} variant="scale">
               <div className="relative max-w-sm mx-auto lg:max-w-none">
                 <div
                   className="absolute -inset-4 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-2xl rounded-[2rem]"
@@ -83,18 +83,17 @@ export default async function ServiceDetailPage({
               <div className="kicker">How this plays out</div>
               <div className="mt-8 grid sm:grid-cols-3 gap-6">
                 {service.story.map((beat, i) => (
-                  <div
-                    key={beat.title}
-                    className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
-                      {String(i + 1).padStart(2, "0")}
+                  <Reveal key={beat.title} delay={i * 90} variant="scale">
+                    <div className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300 h-full">
+                      <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <h3 className="mt-3 font-display text-lg">{beat.title}</h3>
+                      <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                        {beat.description}
+                      </p>
                     </div>
-                    <h3 className="mt-3 font-display text-lg">{beat.title}</h3>
-                    <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                      {beat.description}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

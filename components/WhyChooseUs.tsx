@@ -66,7 +66,7 @@ export default function WhyChooseUs({
             </p>
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={100} variant="scale">
             <div className="group relative">
               <div
                 className="absolute -inset-4 bg-gradient-to-br from-aurora-violet/25 via-aurora-teal/10 to-aurora-rose/25 blur-2xl rounded-[2rem]"
@@ -88,7 +88,7 @@ export default function WhyChooseUs({
           {section.items.map((item, i) => {
             const Icon = icons[item.icon] ?? CheckCircle2;
             return (
-              <Reveal key={item.title} delay={i * 90}>
+              <Reveal key={item.title} delay={i * 90} variant="scale">
                 <div className="w-11 h-11 rounded-full bg-aurora-violet/15 flex items-center justify-center text-aurora-violet">
                   <Icon size={20} strokeWidth={1.75} />
                 </div>

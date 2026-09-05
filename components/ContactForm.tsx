@@ -113,7 +113,7 @@ export default function ContactForm() {
             </Reveal>
           </div>
 
-          <Reveal delay={100}>
+          <Reveal delay={100} variant="scale">
             <div className="relative aspect-[3/2] rounded-2xl border border-line overflow-hidden bg-surface">
               <ContactIllustration />
             </div>

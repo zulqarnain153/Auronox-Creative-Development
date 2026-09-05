@@ -90,7 +90,7 @@ export default async function WorkDetailPage({
 
         {/* Hero visual: single legacy screenshot, only when there's no full gallery */}
         {!project.screenshots && (
-          <Reveal delay={100}>
+          <Reveal delay={100} variant="scale">
             {project.screenshot ? (
               <BrowserFrame
                 src={project.screenshot}
@@ -167,21 +167,20 @@ export default async function WorkDetailPage({
             <div className="mt-12 border-t border-line pt-12">
               <div className="kicker">Key Features</div>
               <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {project.featureCards.map((feature) => (
-                  <div
-                    key={feature.number}
-                    className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
-                      {feature.number}
+                {project.featureCards.map((feature, i) => (
+                  <Reveal key={feature.number} delay={i * 90} variant="scale">
+                    <div className="group relative rounded-2xl border border-line p-6 pt-8 hover:border-ink-muted/40 hover:-translate-y-1 transition-all duration-300 h-full">
+                      <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-void border-2 border-aurora-violet flex items-center justify-center font-display text-sm text-ink">
+                        {feature.number}
+                      </div>
+                      <h3 className="mt-3 font-display text-lg">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
-                    <h3 className="mt-3 font-display text-lg">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -212,23 +211,22 @@ export default async function WorkDetailPage({
             <div className="mt-12 border-t border-line pt-12">
               <div className="kicker">Screenshots</div>
               <div className="mt-8 grid sm:grid-cols-2 gap-6">
-                {project.screenshots.map((shot) => (
-                  <div
-                    key={shot.src}
-                    className="rounded-2xl border border-line overflow-hidden bg-void"
-                  >
-                    <div className="relative w-full h-64 bg-void flex items-center justify-center">
-                      <Image
-                        src={shot.src}
-                        alt={shot.caption}
-                        fill
-                        className="object-contain"
-                      />
+                {project.screenshots.map((shot, i) => (
+                  <Reveal key={shot.src} delay={i * 90} variant="scale">
+                    <div className="rounded-2xl border border-line overflow-hidden bg-void">
+                      <div className="relative w-full h-64 bg-void flex items-center justify-center">
+                        <Image
+                          src={shot.src}
+                          alt={shot.caption}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <p className="px-5 py-4 text-sm text-ink-muted border-t border-line">
+                        {shot.caption}
+                      </p>
                     </div>
-                    <p className="px-5 py-4 text-sm text-ink-muted border-t border-line">
-                      {shot.caption}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

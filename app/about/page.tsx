@@ -22,7 +22,7 @@ export default function AboutPage() {
           </Reveal>
 
           <div className="mt-16 max-w-3xl border-t border-line">
-            <Reveal>
+            <Reveal variant="left">
               <div className="py-10 border-b border-line">
                 <h2 className="font-display text-2xl">What we do</h2>
                 <p className="mt-4 text-ink-muted leading-relaxed">
@@ -35,7 +35,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={80}>
+            <Reveal delay={80} variant="right">
               <div className="py-10 border-b border-line">
                 <h2 className="font-display text-2xl">How we work</h2>
                 <p className="mt-4 text-ink-muted leading-relaxed">
@@ -48,7 +48,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={160}>
+            <Reveal delay={160} variant="left">
               <div className="py-10">
                 <h2 className="font-display text-2xl">
                   Creative and technical, together
@@ -69,14 +69,14 @@ export default function AboutPage() {
       <section className="pb-12 border-t border-line pt-12">
         <div className="max-w-content mx-auto px-6 sm:px-8">
           <div className="grid sm:grid-cols-2 gap-10">
-            <Reveal>
+            <Reveal variant="left">
               <h2 className="font-display text-xl">Our Vision</h2>
               <p className="mt-3 text-ink-muted leading-relaxed">
                 For independent businesses everywhere to have a digital
                 presence as considered as the work they actually do.
               </p>
             </Reveal>
-            <Reveal delay={80}>
+            <Reveal delay={80} variant="right">
               <h2 className="font-display text-xl">Our Mission</h2>
               <p className="mt-3 text-ink-muted leading-relaxed">
                 To design and build websites and AI-powered tools around
